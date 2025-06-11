@@ -53,3 +53,12 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(User, UserAdmin)
+from django.core.mail import send_mail
+
+send_mail(
+    subject="Test Email",
+    message="If you see this, email works.",
+    from_email="jawwadgul12@gmail.com",  # should match EMAIL_HOST_USER
+    recipient_list=["jugaraccnt@gmail.com"],  # use your own or secondary
+    fail_silently=False,
+)
