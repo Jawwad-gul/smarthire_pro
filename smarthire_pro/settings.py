@@ -2,6 +2,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from datetime import timedelta
 import os
+import stripe
 
 
 load_dotenv()
@@ -36,10 +37,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
     "drf_yasg",
+    "django-filter",
     # apps
     "applications",
-    "companies",
-    "core",
     "payments",
     "users",
     "jobs",
@@ -50,9 +50,23 @@ AUTH_USER_MODEL = "users.User"
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
+    ),
+    # "DEFAULT_THROTTLE_CLASSES": [
+    #     "rest_framework.throttling.UserRateThrottle",
+    # ],
+    # "DEFAULT_THROTTLE_RATES": {
+    #     "user": "1/minute",
+    # },
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 5,
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+        "rest_framework.filters.OrderingFilter",
+    ],
 }
 
+# Email-Settings
 FRONTEND_URL = os.getenv("FRONT_END_URL")
 EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
 EMAIL_HOST = os.getenv("EMAIL_HOST")
@@ -61,6 +75,14 @@ EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS") == "True"
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+
+# Stripe-Settings
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY")
+STRIPE_LIVE_MODE = False
+DJSTRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
+DJSTRIPE_USE_NATIVE_JSONFIELD = True
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
 
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),
@@ -73,6 +95,13 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
 }
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
+    }
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
