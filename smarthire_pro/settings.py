@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
     "drf_yasg",
-    "django-filter",
+    "django_filters",
     # apps
     "applications",
     "payments",
