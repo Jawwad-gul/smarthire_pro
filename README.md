@@ -151,14 +151,4 @@ All endpoints are auto-documented via `drf_yasg` and include request schemas, re
 
 > Made with ❤️ using Django & DRF — **SmartHire Pro**
 
-```
 
----
-
-Let me know if you want to:
-- Add shields.io badges (Python version, License, etc.)
-- Include a project banner or logo
-- Generate a sample Postman collection
-
-✅ You’re now GitHub-ready.
-```
