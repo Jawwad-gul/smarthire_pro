@@ -91,7 +91,6 @@ python manage.py runserver
 
 ## 📖 API Documentation
 
-# using default localhost by django
 * **Swagger UI**: [http://localhost:8000/swagger/](http://127.0.0.1:8000/swagger/)
 * **ReDoc**: [http://localhost:8000/redoc/](http://127.0.0.1:8000/redoc/)
 * **OpenAPI JSON**: [http://localhost:8000/swagger.json](http://127.0.0.1:8000/swagger.json)
