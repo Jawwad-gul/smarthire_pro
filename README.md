@@ -1,20 +1,3 @@
-Here’s your corrected and fully formatted `README.md` with:
-
-* Proper **code block indentation**
-* Fixed **line spacing**
-* Clearly separated **sections**
-* GitHub-rendered **Markdown tables** for endpoints
-* Improved layout for visual clarity
-
----
-
-📄 Download your cleaned-up file here:
-👉 [Download README.md](sandbox:/mnt/data/README.md)
-
----
-
-Or see it below:
-
 ````markdown
 # 🚀 SmartHire Pro
 
