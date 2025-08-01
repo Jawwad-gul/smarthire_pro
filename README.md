@@ -1,7 +1,7 @@
-````markdown
-# 🚀 SmartHire Pro
 
-**SmartHire Pro** is a backend service built with Django & Django REST Framework to power job postings, applications, user authentication, and payments. It supports role‑based users (employers & candidates), JWT auth with email verification & password reset, Stripe payments, and filterable/paginated job listings.
+# SmartHire Pro
+
+**SmartHire Pro** is a backend service built with Django & Django REST Framework to power job postings, applications, user authentication, and payments. It supports role‑based users (employers & candidates), JWT auth with email verification & password reset, Stripe payments, and filterable/paginated job listings.(payments cant actually be made unless APi keys from supported county are provided)
 
 ---
 
